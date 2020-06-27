@@ -71,7 +71,7 @@
     <div class="container-fluid">
         <!-- Example row of columns -->
         <div class="row">
-            <div class="container-fluid" id="data-preasure">
+            <div class="container-fluid" id="data-pressure">
 
             </div>
         </div>
@@ -85,7 +85,7 @@
     <div class="container-fluid">
         <!-- Example row of columns -->
         <div class="row">
-            <div class="container-fluid" id="data-preasure">
+            <div class="container-fluid" id="data-pressure">
 
             </div>
         </div>
@@ -109,7 +109,7 @@
     <script>
         var chartTemperatue;
         var chartHumidity;
-        var chartPreasure;
+        var chartPressure;
         var chartUV;
 
         function requestData() {
@@ -125,16 +125,16 @@
                 var seriesHumidity = chartHumidity.series[0],
                     shiftHumidity = seriesTemperature.data.length > 40;
 
-                // Preasure
-                var seriesPreasure = chartPreasure.series[0],
-                    shiftPreasure = seriesPreasure.data.length > 40;
+                // Pressure
+                var seriesPreasure = chartPressure.series[0],
+                    shiftPreasure = seriesPressure.data.length > 40;
 
                 //UV
                 var seriesUV = chartUV.series[0],
                     shiftUV = seriesUV.data.length > 40;
 
                 // Add the Point
-                // Time Temperature\
+                // Time Temperature
                 var data1 = [];
                 data1.push(result[0]);
                 data1.push(result[1]);
@@ -147,7 +147,7 @@
                 data2.push(result[2]);
 
                 // Add the Point
-                // Time Preasure
+                // Time Pressure
                 var data3 = [];
                 data3.push(result[0]);
                 data3.push(result[3]);
@@ -160,7 +160,7 @@
 
                 chartTemperatue.series[0].addPoint(data1, true, shiftTemperature);
                 chartHumidity.series[0].addPoint(data2, true, shiftHumidity);
-                chartPreasure.series[0].addPoint(data3, true, shiftPreasure);
+                chartPressure.series[0].addPoint(data3, true, shiftPreasure);
                 chartUV.series[0].addPoint(data4, true, shiftUV);
 
 
@@ -210,10 +210,10 @@
 
 
             // --------------Chart 2 ----------------------------
-            chartPreasure = new Highcharts.Chart({
+            chartPressure = new Highcharts.Chart({
                 chart:
                 {
-                    renderTo: 'data-preasure',
+                    renderTo: 'data-pressure',
                     defaultSeriesType: 'area',
                     events: {
                         load: requestData
@@ -221,7 +221,7 @@
                 },
                 title:
                 {
-                    text: 'Preasure'
+                    text: 'Pressure'
                 },
                 xAxis: {
                     type: 'datetime',
@@ -278,7 +278,7 @@
                 }]
             });
 
-            // --------------Chart 3 Ends - ---------------------
+            // --------------Chart 3 Ends -----------------------
             // --------------Chart 4 ----------------------------
             chartUV = new Highcharts.Chart({
                 chart:
@@ -353,7 +353,7 @@
                 t1.classList.add("display-3");
             }
         }
-        //const imgUrl = 'https://media3.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif'
+        
         const size = "50";
         var obj = new Image(imgUrl, size);
         obj.backgroundImage();

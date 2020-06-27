@@ -1,9 +1,7 @@
 from flask import Flask,render_template,url_for,request,redirect, make_response
-import random
 import json
 from time import time
 from random import random
-from flask import Flask, render_template, make_response
 import pymongo
 
 
@@ -35,11 +33,11 @@ def data():
 
     dataListP = []
     dataListP = dataListP[1:]
-    for x in mycol.find({},{"Preasure": 1, "_id": 0 }):
+    for x in mycol.find({},{"Pressure": 1, "_id": 0 }):
         for value in x.values():
             dataListP.append(value)
     dataListP = list(map(int, dataListP))
-    Preasure = dataListP[-1]
+    Pressure = dataListP[-1]
 
     dataListH = []
     dataListH = dataListH[1:]
@@ -57,7 +55,7 @@ def data():
     dataListU = list(map(int, dataListU))
     UlV = dataListU[-1]
 
-    data = [time() * 1000, Temperature, Preasure, Humidity, UlV]
+    data = [time() * 1000, Temperature, Pressure, Humidity, UlV]
     response = make_response(json.dumps(data))
 
     response.content_type = 'application/json'
